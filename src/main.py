@@ -6,9 +6,9 @@ def test_functions(test_cases : dict, shop : ShopKeep):
     # call the function
     k(v[0])
     if shop.shop["Peach"][1] == v[1][0] and shop.user.cart == v[1][1]:
-      print(f"{k} passed ✅")
+      print(f"{k.__name__} passed ✅")
     else:
-      print(f"{k} failed ⛔️")
+      print(f"{k.__name__} failed ⛔️")
 
 if __name__ == "__main__":
     print("Starting shop!")
@@ -29,7 +29,6 @@ if __name__ == "__main__":
                # input, expected outputs (i.e. shop, cart)
                shop_keep.add_to_cart : ["Peach", (original_amount - 1, ["Peach"])],
                shop_keep.remove_from_cart : ["Peach", (original_amount, [])],
-               shop_keep.checkout : []
              }
     
     test_functions(tests, shop_keep)
